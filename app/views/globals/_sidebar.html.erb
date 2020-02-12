@@ -3,30 +3,30 @@
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
   <div class="logo">
-    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-      <div class="logo-image-small">
-        <img src="../assets/img/logo-small.png">
-      </div>
-    </a>
-    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+    <!-- <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+      <div class="logo-image-small"> -->
+        <!-- <img src="<%#=Configuration.find_by_key('logo_url').value%>"> -->
+      <!-- </div> -->
+    <!-- </a> -->
+    <a href="/" class="simple-text logo-normal" style="text-align:center">
       Company Name
-      <!-- <div class="logo-image-big">
-        <img src="../assets/img/logo-big.png">
-      </div> -->
+      <div class="logo-image-big" style="text-align:center">
+          <img src="<%=Configuration.find_by_key('logo_url').value%>">
+      </div>
     </a>
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li>
-        <a href="/invoices">
-          <i class="nc-icon nc-bank"></i>
-          <p>Dashboard</p>
+        <a href="/">
+          <i class="nc-icon nc-paper"></i>
+          <p>New Invoice</p>
         </a>
       </li>
-      <li class="active">
-        <a href="/invoices/new">
+      <li>
+        <a href="/invoices">
           <i class="nc-icon nc-bank"></i>
-          <p>New Invoice</p>
+          <p>All Invoices</p>
         </a>
       </li>
     </ul>

@@ -2,7 +2,7 @@
   <div class="col-sm-10 offset-sm-1">
       <div class="card">
         <div class="card-header">
-          <%#= raw Configuration.last.header%>
+          <%= raw Configuration.find_by_key('header').value%>
         </div>
         <div class="card-body">
             <div class="row">
@@ -20,19 +20,18 @@
               </div>
             </div>
             <br>
-
-                <%- @invoice.invoice_additional_field_datas.each do |additional_field|%>
-                <div class="row">
-                  <div class="col-sm-2">
+            <%- @invoice.invoice_additional_field_datas.each do |additional_field|%>
+              <div class="row">
+                 <div class="col-sm-4">
                     <h4><%=InvoiceAdditionalField.find(additional_field.additional_field_id).display_name%></h4>
                   </div>
-                <div class="col-sm-10">
-                  <h4>
-                    <%= additional_field.value %>
-                  </h4>
-                </div>
+                  <div class="col-sm-8">
+                    <h4>
+                      <%= additional_field.value %>
+                    </h4>
+                  </div>
               </div>
-                <% end %>
+            <% end %>
             <br>
             <br>
             <br>

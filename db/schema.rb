@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_142924) do
   end
 
   create_table "invoice_additional_field_data", force: :cascade do |t|
-    t.integer "additional_field_id"
+    t.bigint "additional_field_id"
     t.string "value"
     t.integer "invoice_id"
     t.datetime "created_at", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_142924) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

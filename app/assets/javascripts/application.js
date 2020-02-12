@@ -16,3 +16,17 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require bootstrap-notify/bootstrap-notify
 //= require_tree .
+
+
+$('document').ready(function(){
+  side_nav = $('.sidebar-wrapper a')
+  console.log(side_nav)
+  for(var i=0; i< side_nav.length; i++){
+    console.log(side_nav[i].href)
+    console.log(window.location.href)
+    if(side_nav[i].href == window.location.href){
+      console.log('matched')
+      $(side_nav[i]).parent().addClass('active')
+    }
+  }
+})

@@ -2,7 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Product</th>
+        <th style="width:50%">Product</th>
         <th>Quantity</th>
         <th>Per Unit Price</th>
       </tr>
@@ -10,7 +10,7 @@
     <tbody>
       <%= invoice_form.fields_for :sold_products   do |sold_product_field|%>
       <tr>
-        <td><%=sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}, Product.first.id),{}, {class: "form-control", readonly: true}%></td>
+        <td><%=sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}, Product.first.id),{}, {style: "padding: 0px", class: "form-control", readonly: true}%></td>
         <td><%= sold_product_field.number_field :sold_quantity, class: "form-control pro-quantity",required: true,  data:{product_id: ''}%></td>
         <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", readonly: true, required: true, value: Product.first.price%></td>
       </tr>

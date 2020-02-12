@@ -5,6 +5,8 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     @invoices = Invoice.all
+    @total_sales = SoldProduct.all.pluck(:sold_quantity).sum
+    @total_revenue = @invoices.pluck(:total_cost).sum
   end
 
   # GET /invoices/1
