@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Add Stocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @add_stocks.each do |add_stock| %>
+      <tr>
+        <td><%= add_stock.product %></td>
+        <td><%= add_stock.quantity %></td>
+        <td><%= link_to 'Show', add_stock %></td>
+        <td><%= link_to 'Edit', edit_add_stock_path(add_stock) %></td>
+        <td><%= link_to 'Destroy', add_stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Add Stock', new_add_stock_path %>

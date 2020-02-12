@@ -1,0 +1,6 @@
+<% InvoiceAdditionalField.all.each do |field|%>
+ <div class="form-group">
+   <label for=""><%= field.display_name%></label>
+   <input type=<%="#{field.field_type}"%> name=<%="invoice_additional_field[#{field.id}]"%> class="form-control" required="required">
+ </div>
+ <% end %>

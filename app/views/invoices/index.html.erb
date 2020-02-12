@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <!-- <h1>Invoices</h1> -->
+        <div class="card-title">
+          <h4>Invoices</h4>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Invoice Number</th>
+                <th>Invoice Date</th>
+                <th>Total Cost</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @invoices.each do |invoice| %>
+                <tr>
+                  <td><%= invoice.invoice_no %></td>
+                  <td><%= invoice.invoice_date %></td>
+                  <td><%= invoice.total_cost %></td>
+                  <td><%= link_to 'Show', invoice %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+
+<%#= link_to 'New Invoice', new_invoice_path %>

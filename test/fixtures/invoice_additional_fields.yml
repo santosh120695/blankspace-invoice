@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  field_type: MyString
+  display_name: MyString
+  key: MyString
+  active: false
+
+two:
+  field_type: MyString
+  display_name: MyString
+  key: MyString
+  active: false

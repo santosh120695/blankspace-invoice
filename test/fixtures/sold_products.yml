@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  invoice: one
+  sold_price: 1
+  sold_quantity: 1
+
+two:
+  product: two
+  invoice: two
+  sold_price: 1
+  sold_quantity: 1

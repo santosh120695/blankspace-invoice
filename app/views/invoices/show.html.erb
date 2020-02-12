@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-sm-10 offset-sm-1">
+      <div class="card">
+        <div class="card-header">
+          <%#= raw Configuration.last.header%>
+        </div>
+        <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                  <h4>
+                    Invoice No
+                  </h4>
+                  <%= @invoice.invoice_no%>
+              </div>
+              <div class="col-sm-2 offset-sm-6">
+                <h4>
+                  InvoiceDate
+                </h4>
+                  <%= @invoice.invoice_date%>
+              </div>
+            </div>
+            <br>
+
+                <%- @invoice.invoice_additional_field_datas.each do |additional_field|%>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <h4><%=InvoiceAdditionalField.find(additional_field.additional_field_id).display_name%></h4>
+                  </div>
+                <div class="col-sm-10">
+                  <h4>
+                    <%= additional_field.value %>
+                  </h4>
+                </div>
+              </div>
+                <% end %>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-sm-12 ">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Per Unit Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%- @invoice.sold_products.each do |sold_product|%>
+                        <tr>
+                          <td><%= sold_product.product.name %></td>
+                          <td><%= sold_product.sold_quantity%></td>
+                          <td><%= sold_product.sold_price%></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-1 offset-sm-10" style="text-align:left">
+                  <h4>Total Cost</h4> <%= @invoice.total_cost%>
+              </div>
+            </div>
+        </div>
+        <div class="card-footer" style="text-align:center">
+            <button type="button" id="print" class="btn btn-info"> Print </button>
+        </div>
+      </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+  document.getElementById('print').addEventListener('click', function(){
+    window.open("<%=invoice_pdf_invoice_path(@invoice)%>",'popUpWindow','resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes')
+  })
+</script>
