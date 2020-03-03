@@ -11,7 +11,7 @@
     <a href="/" class="simple-text logo-normal" style="text-align:center">
       Company Name
       <div class="logo-image-big" style="text-align:center">
-          <img src="<%=Configuration.find_by_key('logo_url').value%>">
+          <img src="<%=Configuration.find_by_key('logo_url')&.value%>">
       </div>
     </a>
   </div>

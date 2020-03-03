@@ -6,11 +6,11 @@
 
   <div class="form-group">
     <%= form.label :invoice_date %>
-    <%= form.date_field :invoice_date, class: "form-control", required: true %>
+    <%= form.text_field :invoice_date, class: "form-control", required: true %>
   </div>
-  
+
   <%= render "invoice_additional_fields"%>
-  
+
   <% if Product.count.eql? 1 %>
     <%= render "sold_product", invoice_form: form%>
   <% end %>
@@ -24,3 +24,11 @@
     <%= form.submit class: "btn btn-success pull-right" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('document').ready(function(){
+    $("#invoice_invoice_date").datepicker({
+      format: 'dd/mm/yyyy',
+    })
+  })
+</script>

@@ -15,6 +15,7 @@
 //= require jquery/dist/jquery.min
 //= require bootstrap/dist/js/bootstrap.min
 //= require bootstrap-notify/bootstrap-notify
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker
 //= require_tree .
 
 
