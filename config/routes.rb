@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'invoices#new'
+  root 'invoices#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :sold_products
