@@ -1,20 +1,5 @@
-<div class="form-group">
-  <table class="table">
-    <thead>
-      <tr>
-        <th style="width:50%">Product</th>
-        <th>Quantity</th>
-        <th>Per Unit Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= invoice_form.fields_for :sold_products   do |sold_product_field|%>
-      <tr>
-        <td><%=sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}, Product.first.id),{}, {style: "padding: 0px", class: "form-control", readonly: true}%></td>
+      <tr class="item-fields nested-fields">
+        <td><%= sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}),{include_blank: true}, {style: "padding: 0px", class: "form-control"} %></td>
         <td><%= sold_product_field.number_field :sold_quantity, class: "form-control pro-quantity",required: true,  data:{product_id: ''}%></td>
-        <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", readonly: true, required: true, value: Product.first.price%></td>
+        <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", required: true, value: ""%></td>
       </tr>
-      <%end%>
-    </tbody>
-  </table>
-</div>
