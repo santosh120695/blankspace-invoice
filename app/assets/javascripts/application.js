@@ -24,7 +24,6 @@ $('document').ready(function(){
   side_nav = $('.sidebar-wrapper a')
   for(var i=0; i< side_nav.length; i++){
     if(side_nav[i].href == window.location.href){
-      console.log('matched')
       $(side_nav[i]).parent().addClass('active')
     }
   }

@@ -1,5 +1,3 @@
-
-console.log("called")
 function calculate_total_cost(){
   total_cost = 0
   // $(".pro-quantity").forEach(function(pro){
