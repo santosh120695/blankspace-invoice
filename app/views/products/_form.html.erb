@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-fields">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-fields">
     <%= form.label :product_code %>
-    <%= form.text_field :product_code %>
+    <%= form.text_field :product_code, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-fields">
     <%= form.label :total_available_quantity %>
-    <%= form.number_field :total_available_quantity %>
+    <%= form.number_field :total_available_quantity, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-fields">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-fields">
+    <%= form.submit class: "btn btn-success float-right" %>
   </div>
 <% end %>

@@ -10,9 +10,10 @@
     <!-- </a> -->
     <a href="/" class="simple-text logo-normal" style="text-align:center">
       BlankSpace
-      <div class="logo-image-big" style="text-align:center">
-          <img src="<%=Configuration.find_by_key('logo_url')&.value%>">
-      </div>
+      <!-- <div class="logo-image-big" style="text-align:center"> -->
+          <!-- <img src="<%#=Configuration.find_by_key('logo_url')&.value%>"> -->
+          <!-- <img src="https://drive.google.com/open?id=1tVP3OWzK4jRiSJbvVyt-4aJFp1DI5Ehp"> -->
+      <!-- </div> -->
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -27,6 +28,12 @@
         <a href="/invoices/new">
           <i class="fa fa-file-text-o" aria-hidden="true"></i>
           <p>New Invoice</p>
+        </a>
+      </li>
+      <li>
+        <a href="/products">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+          <p>Products</p>
         </a>
       </li>
     </ul>

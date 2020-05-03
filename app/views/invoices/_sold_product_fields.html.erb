@@ -2,4 +2,9 @@
         <td><%= sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}),{include_blank: true}, {style: "padding: 0px", class: "form-control"} %></td>
         <td><%= sold_product_field.number_field :sold_quantity, class: "form-control pro-quantity",required: true,  data:{product_id: ''}%></td>
         <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", required: true, value: ""%></td>
+        <td>
+          <%=link_to_remove_association(sold_product_field, form_name: 'sold_product_field') do %>
+          <i class="fa fa-minus"></i>
+          <% end %>
+        </td>
       </tr>
