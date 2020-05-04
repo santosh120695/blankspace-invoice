@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'configuration/index'
+  post 'configuration/update'
   root 'invoices#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

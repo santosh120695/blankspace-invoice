@@ -12,7 +12,7 @@
       BlankSpace
       <!-- <div class="logo-image-big" style="text-align:center"> -->
           <!-- <img src="<%#=Configuration.find_by_key('logo_url')&.value%>"> -->
-          <!-- <img src="https://drive.google.com/open?id=1tVP3OWzK4jRiSJbvVyt-4aJFp1DI5Ehp"> -->
+          <img src="<%=assets_path('blankspace.jpeg')%>">
       <!-- </div> -->
     </a>
   </div>
@@ -34,6 +34,18 @@
         <a href="/products">
           <i class="fa fa-building-o" aria-hidden="true"></i>
           <p>Products</p>
+        </a>
+      </li> 
+      <li>
+        <a href="/configuration/index">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+          <p>Configurations</p>
+        </a>
+      </li>
+      <li>
+        <a href="/configuration/index">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+          <p>Expenses</p>
         </a>
       </li>
     </ul>

@@ -10,7 +10,7 @@
   </div>
 
   <%= render "invoice_additional_fields"%>
-  <% if Product.count.eql? 1 %>
+  <% if Product.count > 0 %>
   <div class="form-group">
     <table class="table">
       <thead>

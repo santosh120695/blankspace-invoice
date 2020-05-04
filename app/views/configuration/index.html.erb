@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header"><h4>Configuration</h4></div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Enable Tax</label>
+                    <input type="checkbox" name="enable_tax" class="checkbox configuration-field" />
+                    <br>
+                    <label>Tax</label>
+                    <input type="number" name="tax" id="" class="form-control configuration-field">
+                </div> 
+                <div class="form-group">
+                    <label>Enable Discounts</label>
+                    <input type="checkbox" name="enable_discount" class="checkbox configuration-field"/>
+                    <br>
+                    <label>Discount</label>
+                    <input type="number" name="discount" id="" class="form-control configuration-field">
+                </div>
+                <div class="form-group">
+                    <label>Enable Other Charges  </label>
+                    <input type="checkbox" name="enable_other_charges" class="configuration-field checkbox"/>
+                    <br>
+                    <label>Other Charges</label>
+                    <input type="number" name="other_charges" id="" class="form-control configuration-field">
+                </div>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('document').ready(function(){
+        $(".configuration-field").on('change', function(){
+            var field_name = $(this).attr('name')
+            var field_value = null 
+            if($(this).attr('type')=="checkbox"){
+                field_value = $(this).prop("checked")
+            }
+            else{
+                field_value = $(this).val()
+            }
+
+            $.ajax({
+                url: "",
+                type: "POST",
+                data: {field_name: field_name, field_value: field_value},
+                success: function(response){
+                    console.log(response)
+                }
+
+            })
+        })
+    })
+</script>

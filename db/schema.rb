@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_142924) do
+ActiveRecord::Schema.define(version: 2020_05_03_175235) do
 
   create_table "add_stocks", force: :cascade do |t|
     t.integer "product_id"
@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(version: 2020_02_11_142924) do
     t.integer "total_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "discount"
+    t.float "other_charges"
+    t.float "gst"
   end
 
   create_table "products", force: :cascade do |t|

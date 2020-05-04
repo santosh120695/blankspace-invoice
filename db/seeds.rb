@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Configuration.create(key:"enable_tax",value: "0")
+Configuration.create(key:"tax",value: "0")
+Configuration.create(key:"enable_discount", value:"0")
+Configuration.create(key:"discount", value:"0")
+Configuration.create(key: "enable_other_charges",value: "0")
+Configuration.create(key: "other_charges",value: "0")
