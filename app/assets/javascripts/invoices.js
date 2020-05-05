@@ -35,7 +35,7 @@ function fetch_all_products() {
     url: '/products.json',
     method: 'GET',
     success: function(response){
-      response.forEach(element => {
+      response.forEach(function(element) {
         localStorage.setItem(String(element.id), element.price)
       });
     }
