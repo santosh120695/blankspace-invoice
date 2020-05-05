@@ -1,19 +1,43 @@
-function calculate_total_cost(){
-  total_cost = 0
-  // $(".pro-quantity").forEach(function(pro){
-  //   total_cost = total_cost + $(pro).next().val()
-  // })
-  pro_quantity = $(".pro-quantity")
-  for(var i=0; i< pro_quantity.length; i++ ){
-    quantity = parseInt($(pro_quantity[i]).val())
-    no_of_pro = parseInt($(pro_quantity[i]).parents('tr').find('.per-unit-price').val())
-    total_cost = total_cost + (quantity * no_of_pro)
-  }
-  $('#invoice_total_cost').val(total_cost)
-}
-
 $('document').ready(function(){
+  $(".product-select").on('change', function(e){
+      product_selected = $(this).val()
+      price = localStorage.getItem(product_selected)
+      $(this).parents('tr').find('.per-unit-price').val(price)
+      calculate_cost()
+  })
+
   $(".pro-quantity").on('change', function(){
-     calculate_total_cost()
+      calculate_cost()
   })
 })
+
+function calculate_cost(){
+  trs = $("#sold-products").find("tr")
+  total_cost = 0
+  for(var i=0; i< trs.length; i++ ){
+    quantity = $(trs[i]).find('.pro-quantity').val()
+    price = $(trs[i]).find('.per-unit-price').val()
+    console.log(quantity)
+    console.log(price)
+    if(quantity && price){
+      total_cost += quantity * price
+    }
+  }
+  console.log(total_cost)
+  $("#invoice_total_cost").val(total_cost)
+}
+
+
+
+
+function fetch_all_products() {
+  $.ajax({
+    url: '/products.json',
+    method: 'GET',
+    success: function(response){
+      response.forEach(element => {
+        localStorage.setItem(String(element.id), element.price)
+      });
+    }
+  })
+}

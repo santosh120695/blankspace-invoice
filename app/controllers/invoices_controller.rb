@@ -31,8 +31,10 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        additional_params.each do |additional_param_name, additional_param_value|
-          InvoiceAdditionalFieldData.create(additional_field_id: additional_param_name, value: additional_param_value, invoice_id: @invoice.id)
+        if additional_params.present?
+            additional_params.each do |additional_param_name, additional_param_value|
+              InvoiceAdditionalFieldData.create(additional_field_id: additional_param_name, value: additional_param_value, invoice_id: @invoice.id)
+            end
         end
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
@@ -83,6 +85,10 @@ class InvoicesController < ApplicationController
     end
     
     def additional_params
-      params.require(:invoice_additional_field)
+      if params[:invoice_additional_field].present?
+        params.require(:invoice_additional_field)
+      else 
+        nil
+      end
     end
 end

@@ -49,11 +49,12 @@
 <script type="text/javascript">
   $('document').ready(function(){
     $(".add_fields").data("association-insertion-method","after").
-      data("association-insertion-node", function(link){
+    data("association-insertion-node", function(link){
       return $("#sold-products .item-fields").last()
-  });
+    });
     $("#invoice_invoice_date").datepicker({
       format: 'dd/mm/yyyy',
     })
+    fetch_all_products()
   })
 </script>
