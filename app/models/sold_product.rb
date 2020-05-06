@@ -1,4 +1,4 @@
 class SoldProduct < ApplicationRecord
-  belongs_to :product
+  belongs_to :product, optional: true
   belongs_to :invoice
 end

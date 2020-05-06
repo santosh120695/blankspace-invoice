@@ -48,7 +48,11 @@
                     <tbody>
                       <%- @invoice.sold_products.each do |sold_product|%>
                         <tr>
-                          <td><%= sold_product.product.name %></td>
+                          <%- if Configuration.find_by(key: "enable_products").value == "1"%>
+                            <td><%= sold_product.product.name %></td>
+                          <% else %>
+                            <td><%= sold_product.product_name %></td>
+                          <% end %>
                           <td><%= sold_product.sold_quantity%></td>
                           <td><%= sold_product.sold_price%></td>
                         </tr>
