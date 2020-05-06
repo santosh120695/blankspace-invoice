@@ -4,6 +4,9 @@ class CreateInvoices < ActiveRecord::Migration[5.2]
       t.string :invoice_no
       t.date :invoice_date
       t.integer :total_cost
+      t.float   :tax
+      t.float   :other_charges
+      t.float   :discount
 
       t.timestamps
     end

@@ -5,6 +5,7 @@ class CreateSoldProducts < ActiveRecord::Migration[5.2]
       t.references :invoice, foreign_key: true
       t.integer :sold_price
       t.integer :sold_quantity
+      t.string :product_name
 
       t.timestamps
     end
