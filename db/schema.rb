@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 2020_05_03_175235) do
     t.string "invoice_no"
     t.date "invoice_date"
     t.integer "total_cost"
+    t.float "tax"
+    t.float "other_charges"
+    t.float "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "discount"
-    t.float "other_charges"
-    t.float "gst"
   end
 
   create_table "products", force: :cascade do |t|
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_175235) do
     t.integer "invoice_id"
     t.integer "sold_price"
     t.integer "sold_quantity"
+    t.string "product_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_sold_products_on_invoice_id"

@@ -13,3 +13,8 @@ Configuration.create(key:"enable_discount", value:"0")
 Configuration.create(key:"discount", value:"0")
 Configuration.create(key: "enable_other_charges",value: "0")
 Configuration.create(key: "other_charges",value: "0")
+Configuration.create(key: "enable_products",value: "0")
+Configuration.create(key: "auto_value", value: "0")
+Configuration.create(key: "enable_expense", value: "0")
+
+User.create(email: "admin@blankspace.group", name: "admin", password: "1linkwok@", password_confirmation: "1linkwok@")

@@ -3,6 +3,6 @@ class Invoice < ApplicationRecord
   has_many :invoice_additional_field_datas
   accepts_nested_attributes_for :sold_products, reject_if: :all_blank, allow_destroy: true
 
-  validates :Invoice_number, uniqueness: true
+  validates :invoice_no, uniqueness: true
   
 end

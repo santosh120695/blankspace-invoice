@@ -1,4 +1,5 @@
-      <tr class="item-fields nested-fields">
+<%- if Configuration.find_by(key: "enable_products").value == "1"%>  
+  <tr class="item-fields nested-fields">
         <td><%= sold_product_field.select :product_id, options_for_select(Product.all.map { |product| [product.name, product.id]}),{include_blank: true}, {style: "padding: 0px", class: "form-control product-select"} %></td>
         <td><%= sold_product_field.number_field :sold_quantity, class: "form-control pro-quantity",required: true,  data:{product_id: ''}%></td>
         <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", required: true, value: ""%></td>
@@ -7,4 +8,16 @@
           <i class="fa fa-minus"></i>
           <% end %>
         </td>
-      </tr>
+  </tr>
+<% else%>
+  <tr class="item-fields nested-fields">
+    <td><%= sold_product_field.text_field :product_name, class: "form-control" %></td>
+    <td><%= sold_product_field.number_field :sold_quantity, class: "form-control pro-quantity",required: true,  data:{product_id: ''}%></td>
+    <td><%= sold_product_field.number_field :sold_price, class: "form-control per-unit-price", required: true, value: ""%></td>
+    <td>
+      <%=link_to_remove_association(sold_product_field, form_name: 'sold_product_field') do %>
+      <i class="fa fa-minus"></i>
+      <% end %>
+    </td>
+  </tr>
+<%end%>

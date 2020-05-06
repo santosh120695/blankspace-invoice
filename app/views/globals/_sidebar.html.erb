@@ -30,24 +30,28 @@
           <p>New Invoice</p>
         </a>
       </li>
+      <%- if Configuration.find_by(key: "enable_products").value == "1"%>
       <li>
         <a href="/products">
           <i class="fa fa-building-o" aria-hidden="true"></i>
           <p>Products</p>
         </a>
       </li> 
+      <% end %>
       <li>
         <a href="/configuration/index">
           <i class="fa fa-cogs" aria-hidden="true"></i>
           <p>Configurations</p>
         </a>
       </li>
+      <%- if Configuration.find_by(key: "enable_expense").value == "1"%>
       <li>
         <a href="/expenses">
           <i class="fa fa-arrows-alt" aria-hidden="true"></i>
           <p>Expenses</p>
         </a>
       </li>
+      <% end %>
     </ul>
   </div>
 </div>

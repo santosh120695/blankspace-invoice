@@ -10,7 +10,6 @@
   </div>
 
   <%= render "invoice_additional_fields"%>
-  <% if Product.count > 0 %>
   <div class="form-group">
     <table class="table">
       <thead>
@@ -34,7 +33,27 @@
       </tbody>
     </table>
   </div>
-  <% end %>
+  
+  <%- if Configuration.find_by(key: "enable_discount").value == "1"%>
+  <div class="form-group">
+    <%= form.label :discount %>
+    <%= form.number_field :discount, class: "form-control", required: true, value: Configuration.find_by(key: "discount").value %>
+  </div>
+  <%end%>
+  
+  <%- if Configuration.find_by(key: "enable_other_charges").value == "1"%>
+  <div class="form-group">
+    <%= form.label :other_charges %>
+    <%= form.number_field :other_charges, class: "form-control", required: true, value: Configuration.find_by(key: "other_charges").value%>
+  </div>
+  <%end%>  
+
+  <%- if Configuration.find_by(key: "enable_tax").value == "1"%>
+    <div class="form-group">
+      <%= form.label :tax %>
+      <%= form.number_field :tax, class: "form-control", required: true, value:  Configuration.find_by(key: "tax").value%>
+    </div>
+  <%end%>
 
   <div class="form-group">
     <%= form.label :total_cost %>
